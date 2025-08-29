@@ -1,0 +1,14 @@
+.line {
+    position: absolute;
+    background-color: #4a5568; /* gray-700 */
+    height: 2px;
+    transform-origin: 0 50%;
+    left: 50%;
+    z-index: 1;
+}
+
+.line-text {
+    white-space: nowrap;
+    text-align: center;
+    font-size: 0.8em;
+}
