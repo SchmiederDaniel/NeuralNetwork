@@ -1,9 +1,7 @@
-import {Promise as promise} from 'es6-promise';
-
 let enabled = false;
 let waiting = true;
 const pollInterval: number = 100;
-let stepCallback = null;
+let stepCallback: Function | null = null;
 
 export default {
     enable(): void {

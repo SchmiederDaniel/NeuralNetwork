@@ -1,14 +1,10 @@
 [
 	{
-		"title": "Overview",
-		"link": "/tutorials"
-	},
-	{
 		"title": "Introduction",
-		"link": "/tutorials/introduction"
+		"link": "/tutorials/introduction/1"
 	},
 	{
 		"title": "Forwardpass",
-		"link": "/tutorials/forwardpass"
+		"link": "/tutorials/forwardpass/1"
 	}
 ]
