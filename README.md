@@ -64,7 +64,7 @@ bun run dev -- --open
 
 ## Building
 
-To create a production version of your app run:
+To build the project, run:
 
 ```sh
 bun run build
