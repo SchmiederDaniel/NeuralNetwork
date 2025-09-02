@@ -1,8 +1,8 @@
 import './Network.css';
-import NetworkElement from './utilities/NetworkElement';
 import Layer from './layer/Layer';
 import NetworkConfig from './NetworkConfig';
 import { Random } from './utilities/Random';
+import LabelContainer from './utilities/LabelContainer';
 
 /**
  * Create a multidimensional array for the weights using the Random.ts implementation and a seed.
@@ -27,10 +27,8 @@ function createWeights(layerDimensions: number[], seed: number): number[][][] {
 	return weightValues;
 }
 
-export default class Network extends NetworkElement {
+export default class Network extends LabelContainer {
 	private layerDimensions: number[];
-	private labelContainer: HTMLDivElement;
-	private self: HTMLElement;
 	private layers: Layer[] = [];
 	private y_pred: number[];
 	private networkConfig: NetworkConfig;
@@ -40,7 +38,9 @@ export default class Network extends NetworkElement {
      For example: ```const weights = [null, [[2]]];```
 	 */
 	constructor(parent: HTMLElement, networkConfig: NetworkConfig, weightValues?: number[][][]) {
-		super(parent);
+		super(parent, "Network");
+		this.self.classList.add('network');
+
 		const layerDimensions = networkConfig.getLayerDimensions();
 		this.networkConfig = networkConfig;
 		this.layerDimensions = layerDimensions;
@@ -68,8 +68,6 @@ export default class Network extends NetworkElement {
 		this.layers = [];
 
 		let lastLayer: Layer | undefined;
-		console.log("v2")
-		console.log(this.self)
 		for (let i = 0; i < this.layerDimensions.length; i++) {
 			const layer = new Layer(
 				this.self,
@@ -153,27 +151,6 @@ export default class Network extends NetworkElement {
 	onDestroy() {
 		super.onDestroy();
 		removeEventListener('resize', this.resize.bind(this));
-		this.labelContainer.remove();
-	}
-
-	createElement(): void {
-		this.labelContainer = document.createElement('div');
-		this.labelContainer.classList.add('label-container');
-
-		const label = document.createElement('div');
-		label.classList.add('label');
-		label.innerHTML = 'Network';
-		this.labelContainer.appendChild(label);
-
-		this.self = document.createElement('div');
-		this.self.classList.add('network');
-		this.labelContainer.appendChild(this.self);
-
-		console.log("v1")
-		console.log(this.self)
-	}
-
-	addToParent(parent: HTMLElement) {
-		parent.appendChild(this.labelContainer);
+		this.container.remove();
 	}
 }

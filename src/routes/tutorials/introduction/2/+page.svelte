@@ -14,6 +14,10 @@
 		const resetCallback = highlightElement('.tutorial-button');
 		const network = setupNetwork(networkContainer, 42, [2, 4, 3, 2]);
 
+		const input = [2, 1];
+		network.setInputData(input)
+		network.forward(input);
+
 		return () => {
 			resetCallback();
 			network.onDestroy();

@@ -1,4 +1,4 @@
-import Network from '$lib/network/Network';
+import Network from './Network';
 
 export enum ActivationFunction {
 	LINEAR = 'linear',

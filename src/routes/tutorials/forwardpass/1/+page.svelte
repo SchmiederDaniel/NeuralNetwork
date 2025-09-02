@@ -2,7 +2,7 @@
 	import { setObject } from '$lib/object-storage.svelte.js';
 
 	setObject({
-		sidemenu, sidebutton, button: { nextLink: '/tutorials/forward/v2', text: 'Next chapter' }
+		sidemenu, sidebutton, button: { nextLink: '/tutorials/forwardpass/2', text: 'Next chapter' }
 	});
 </script>
 {#snippet sidemenu()}
