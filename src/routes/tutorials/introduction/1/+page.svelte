@@ -4,7 +4,10 @@
 	import { highlightElement } from '$lib/animations.js';
 
 	setObject({
-		sidemenu, sidebutton, button: {nextLink: "/tutorials/introduction/2", text: "Next chapter"}
+		sidemenu, sidebutton, button: {
+			previousLink: "/tutorials/", previousText: "Overview",
+			nextLink: "/tutorials/introduction/2", nextText: "Next chapter"
+		}
 	});
 
 	onMount(() => {
@@ -16,10 +19,8 @@
 	})
 </script>
 
-
-
 {#snippet sidemenu()}
-	<p>Welcome to this neural network tutorial.</p>
+	<h5>Welcome to this neural network tutorial!</h5>
 	<p>In this tutorial I want to show people the math behind Neural-Networks and who knows,
 		maybe you'll find it quite simple in the end. </p>
 	<p>But first of I want to explain the tutorials controls.

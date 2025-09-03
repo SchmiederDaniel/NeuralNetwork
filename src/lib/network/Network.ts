@@ -86,6 +86,11 @@ export default class Network extends LabelContainer {
 		const nodes = this.layers[0].getNodes();
 		let biasOffset = 0;
 		if (this.networkConfig.isBiasEnabled()) biasOffset = 1; // The first node is the bias when the bias is enabled
+
+		if(values.length !== nodes.length - biasOffset) {
+			throw new Error("Input data length doesn't match input layers node count.");
+		}
+
 		for (let i = 0; i < values.length; i++) {
 			nodes[i + biasOffset].setValue(values[i]);
 		}

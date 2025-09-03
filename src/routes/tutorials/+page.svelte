@@ -2,7 +2,7 @@
 	import { setObject } from '$lib/object-storage.svelte.js';
 	import tutorials from './tutorials.svelte.json';
 
-	setObject({ heading, sidemenu, sidebutton, button: {} });
+	setObject({ heading, sidemenu, sidebutton, button: null });
 </script>
 
 <div class="flex flex-col text-center items-center justify-center">

@@ -16,12 +16,15 @@
 </script>
 
 <div class="flex flex-col-reverse h-screen">
-	<div class="flex flex-row-reverse h-full w-full">
-		<div class="grow-1 flex justify-center items-center">
-			{@render children()}
+	<div class="flex flex-row-reverse h-full w-full justify-between">
+		<div class="grow-0 grid place-items-center h-full overflow-x-auto justify-self-center">
+			<div>
+				{@render children()}
+			</div>
 		</div>
-		{#if slots.button.nextLink}
-			<div class="sidemenu p-4 bg-violet-100 custom-shadow empty:w-0 empty:p-0 max-w-80 flex flex-col relative">
+		{#if slots.button}
+			<div class="p-5 bg-violet-100 custom-shadow empty:w-0 empty:p-0 max-w-94 flex flex-col relative"
+			     style="min-width: {sideMenuOpen ? 300: 0}px; {sideMenuOpen ? 'flex: 1;' : 'flex: 0'}">
 				<button class="absolute w-11 h-11 hover:bg-violet-500/90 bg-violet-500/50 rounded-md top-1 text-white"
 				        style="right: -52px;"
 				        onclick={toggleSideMenu}>
@@ -36,9 +39,11 @@
 						{@render slots.sidemenu()}
 					</div>
 					<div class="grow-1"></div>
-					<div class="w-full flex items-center justify-center">
+					<div class="w-full flex items-center justify-center gap-3">
+						<a href={slots.button.previousLink}
+						   class="navigation-button custom-shadow">{slots.button.previousText}</a>
 						<a href={slots.button.nextLink}
-						   class="tutorial-button px-6 py-2 hover:bg-violet-600 transition-all bg-violet-500 text-white font-semibold custom-shadow rounded-md">{slots.button.text}</a>
+						   class="navigation-button navigation-button-right custom-shadow">{slots.button.nextText}</a>
 					</div>
 				{/if}
 			</div>
@@ -69,7 +74,13 @@
 	</div>
 </div>
 
-<style>
+<style lang="postcss">
+  @reference "tailwindcss";
+
+  .navigation-button {
+    @apply px-3 py-2 hover:bg-violet-600 transition-all bg-violet-500 text-white font-semibold rounded-md whitespace-nowrap;
+  }
+
   .heroicons-outline--x {
     display: inline-block;
     width: 40px;
