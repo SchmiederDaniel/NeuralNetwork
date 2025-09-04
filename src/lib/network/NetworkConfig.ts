@@ -7,20 +7,21 @@ export enum ActivationFunction {
 	RELU = 'relu'
 }
 
-export function setupNetwork(networkContainer: HTMLElement, seed: number, layerDimensions: number[]) {
+export function setupNetwork(
+	networkContainer: HTMLElement,
+	seed: number,
+	layerDimensions: number[],
+	bias: boolean = true
+) {
 	const networkConfig = new NetworkConfig(layerDimensions)
 		.setSeed(seed)
 		.setLearningRate(0.01)
-		.setBiasEnabled(true);
+		.setBiasEnabled(bias);
 	return new Network(networkContainer, networkConfig);
 }
 
 export default class NetworkConfig {
-	constructor(
-		layerDimensions: number[],
-		inputData?: number[][],
-		outputData?: number[][]
-	) {
+	constructor(layerDimensions: number[], inputData?: number[][], outputData?: number[][]) {
 		this.setLayerDimensions(layerDimensions);
 		if (inputData) this.setInputData(inputData);
 		if (outputData) this.setOutputData(outputData);

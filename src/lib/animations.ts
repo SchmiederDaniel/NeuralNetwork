@@ -11,11 +11,15 @@ function initialize() {
  * @param destinationContainer {HTMLElement}
  * @param duration {number=}
  */
-export function cloneFloatAnimation(element, destinationContainer, duration = 1.5) {
+export function cloneFloatAnimation(
+	element: HTMLElement,
+	destinationContainer: HTMLElement,
+	duration = 1.5
+) {
 	initialize();
 
 	const state = Flip.getState(element);
-	const clone = element.cloneNode(true);
+	const clone: HTMLElement = element.cloneNode(true) as HTMLElement;
 	destinationContainer.prepend(clone);
 
 	gsap.set(clone, {
@@ -49,36 +53,40 @@ export function cloneFloatAnimation(element, destinationContainer, duration = 1.
  * Highlights a html element.
  * @param element {HTMLElement | string} The element to animate or the selector for querySelector.
  * @param radius {number | undefined} Defines how far the outline animation goes.
- * @returns {(function())|*} Callback function which can be called to stop the effect.
+ * @returns {(Function())|*} Callback function which can be called to stop the effect.
  */
-export function highlightElement(element, radius = 7) {
+export function highlightElement(element: HTMLElement | string, radius: number = 7): Function {
+	let animatable: HTMLElement | NodeListOf<HTMLElement>;
 	if (typeof element === 'string') {
-		element = document.querySelector(element);
+		animatable = document.querySelectorAll(element) as NodeListOf<HTMLElement>;
+	} else {
+		animatable = element;
 	}
+
 	const context = gsap.context(() => {
-		gsap.set(element, {
+		gsap.set(animatable, {
 			outlineStyle: 'solid'
 		});
 		gsap
 			.timeline({ repeat: -1 })
-			.to(element, {
+			.to(animatable, {
 				duration: 0.2,
 				outlineColor: 'rgba(0,130,200,0.7)',
 				ease: 'power1.out'
 			})
-			.to(element, {
+			.to(animatable, {
 				duration: 1.4,
 				outlineWidth: `${radius}px`,
 				outlineOffset: `${radius * 0.3}px`,
 				outlineColor: 'rgba(0,130,200,0)',
 				ease: 'power1.out'
 			})
-			.to(element, {
+			.to(animatable, {
 				duration: 0.8,
 				outlineColor: 'rgba(100,100,100,0)',
 				ease: 'none'
 			});
-	}, element);
+	}, animatable);
 	return () => {
 		context.revert();
 	};
@@ -87,18 +95,29 @@ export function highlightElement(element, radius = 7) {
 /**
  * Creates an animation where an HTML element is being faded out
  * and can be made visible again by calling the callback function.
- * @param element {HTMLElement} The element to animate.
+ * @param element {HTMLElement | string} The element to animate or the selector for querySelector.
  * @param opacity {number=} The opacity which it fades to.
  * @param duration {number=} The time the animation takes.
  * @returns {(function(): void)|*} Callback function which can be called to stop the effect.
  */
-export function fadeOutElement(element, opacity = 0.25, duration = 1) {
+export function hideElement(
+	element: HTMLElement | string,
+	opacity: number = 0.25,
+	duration: number = 1
+) {
+	let animatable: HTMLElement | NodeListOf<HTMLElement>;
+	if (typeof element === 'string') {
+		animatable = document.querySelectorAll(element) as NodeListOf<HTMLElement>;
+	} else {
+		animatable = element;
+	}
+
 	const context = gsap.context(() => {
-		gsap.to(element, {
+		gsap.to(animatable, {
 			opacity: opacity,
 			duration: duration
 		});
-	}, element);
+	}, animatable);
 	return () => {
 		context.revert();
 	};

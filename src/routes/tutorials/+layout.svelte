@@ -1,8 +1,6 @@
 <script>
 	import tutorials from './tutorials.svelte.json';
 	import { getObjectReference } from '$lib/object-storage.svelte.js';
-	import minusIcon from '$lib/assets/heroicons-outline-mins.svg?raw';
-	import plusIcon from '$lib/assets/heroicons-outline-plus.svg?raw';
 
 	let { children } = $props();
 
@@ -18,31 +16,33 @@
 <div class="flex flex-col-reverse h-screen">
 	<div class="h-full tutorial-container overflow-hidden">
 		<!-- Main content -->
-		<div class="main-content w-full h-full grid place-items-center">
+		<div class="main-content  grid place-items-center">
 			<div>
 				{@render children()}
 			</div>
 		</div>
 		<!-- Side menu -->
 		{#if slots.button}
-			<div class="side-menu custom-shadow max-w-94 min-w-fit flex flex-col p-5 bg-violet-100 relative overflow-hidden">
-				<button class="absolute w-11 h-11 hover:bg-violet-500/90 bg-violet-500/50 rounded-md top-1 text-white"
-				        style="right: -52px;"
-				        onclick={toggleSideMenu}>
-					{#if sideMenuOpen}
-						{@html minusIcon}
-					{:else}
-						{@html plusIcon}
-					{/if}
-				</button>
+			<div
+				class="side-menu custom-shadow max-w-94 min-w-fit grid p-3 bg-violet-100 relative font-semibold max-h-full overflow-y-hidden"
+				style="grid-template-rows: 1fr min-content">
+				<!--				<button class="absolute w-11 h-11 hover:bg-violet-500/90 bg-violet-500/50 rounded-md top-1 text-white"-->
+				<!--				        style="right: -52px;"-->
+				<!--				        onclick={toggleSideMenu}>-->
+				<!--					{#if sideMenuOpen}-->
+				<!--						{@html minusIcon}-->
+				<!--					{:else}-->
+				<!--						{@html plusIcon}-->
+				<!--					{/if}-->
+				<!--				</button>-->
 				{#if sideMenuOpen}
 					<div class="overflow-y-auto">
 						{@render slots.sidemenu()}
 					</div>
-					<div class="grow-1"></div>
-					<div class="w-full flex items-center justify-center gap-3">
+					<div class="w-full flex items-center justify-center gap-3 pt-3">
 						<a href={slots.button.previousLink}
 						   class="navigation-button custom-shadow">{slots.button.previousText}</a>
+						<div class="grow-1"></div>
 						<a href={slots.button.nextLink}
 						   class="navigation-button navigation-button-right custom-shadow">{slots.button.nextText}</a>
 					</div>
@@ -87,8 +87,6 @@
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-areas: "sidemenu main";
-    height: 100%;
-    width: 100%;
     overflow-y: hidden;
   }
 
@@ -99,7 +97,6 @@
   }
 
   .side-menu {
-    padding: 1rem;
     grid-area: sidemenu;
   }
 

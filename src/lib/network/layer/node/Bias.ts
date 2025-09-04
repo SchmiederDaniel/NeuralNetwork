@@ -9,12 +9,12 @@ export default class Bias extends Node {
 		parent: HTMLElement,
 		networkConfig: NetworkConfig,
 		lastLayer: Layer | undefined,
-		type: string
+		layerType: string
 	) {
 		/**
 		 * The weightValues will be null which prevents forward and backward passes.
 		 */
-		super(parent, networkConfig, lastLayer, null, 0, type);
+		super(parent, networkConfig, lastLayer, null, 0, layerType);
 		this.self.classList.add('bias');
 		this.setValue(1);
 	}

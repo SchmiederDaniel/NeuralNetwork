@@ -54,10 +54,10 @@ function createLine(
 	text: HTMLDivElement;
 } {
 	const line = document.createElement('div');
-	line.className = 'line';
+	line.className = 'weight-line';
 
 	const text = document.createElement('div');
-	text.className = 'line-text';
+	text.className = 'weight-line-text';
 
 	adjustPosition(line, text, from, to, nodeIndex);
 

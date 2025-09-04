@@ -6,8 +6,8 @@
 
 	setObject({
 		sidemenu, sidebutton, button: {
-			previousLink: '/tutorials/', previousText: 'Overview',
-			nextLink: '/tutorials/forwardpass/2', nextText: 'Chapter >'
+			previousLink: '/tutorials/forwardpass/1', previousText: '< Chapter',
+			nextLink: '/tutorials/forwardpass/3', nextText: 'Chapter >'
 		}
 	});
 
@@ -30,11 +30,8 @@
 <div bind:this={networkContainer}></div>
 
 {#snippet sidemenu()}
-	<h5>Welcome back!</h5>
-	<p>In this tutorial I want to explain how the <b>Forwardpass</b> is being calculated.</p>
-	<p>And look!</p>
-	<p>I simplified the neural network. It's much cuter now, right? 🥺</p>
-	<p>It only consists of one input layer and one output layer.</p>
+	<h5>Forwardpass</h5>
+
 {/snippet}
 
 {#snippet sidebutton()}{/snippet}

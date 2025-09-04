@@ -1,5 +1,4 @@
 import './Node.css';
-import NetworkElement from '../../utilities/NetworkElement';
 import Layer from '../Layer';
 import Weights from './weight/Weights';
 import sleep from '../../utilities/Sleep';
@@ -25,14 +24,15 @@ export default class Node extends Self {
 		lastLayer: Layer | undefined,
 		weightValues: number[] | null,
 		nodeIndex: number,
-		type: string
+		layerType: string
 	) {
 		super(parent);
 		this.self.classList.add('node');
+		this.self.classList.add(layerType);
 		this.text.classList.add('node-text');
 		this.self.appendChild(this.text);
 		this.networkConfig = networkConfig;
-		this.layerType = type;
+		this.layerType = layerType;
 
 		if (weightValues) {
 			this.connectLayer(lastLayer, weightValues, nodeIndex);
