@@ -16,15 +16,16 @@
 </script>
 
 <div class="flex flex-col-reverse h-screen">
-	<div class="flex flex-row-reverse h-full w-full justify-between">
-		<div class="grow-0 grid place-items-center h-full overflow-x-auto justify-self-center">
+	<div class="h-full tutorial-container overflow-hidden">
+		<!-- Main content -->
+		<div class="main-content w-full h-full grid place-items-center">
 			<div>
 				{@render children()}
 			</div>
 		</div>
+		<!-- Side menu -->
 		{#if slots.button}
-			<div class="p-5 bg-violet-100 custom-shadow empty:w-0 empty:p-0 max-w-94 flex flex-col relative"
-			     style="min-width: {sideMenuOpen ? 300: 0}px; {sideMenuOpen ? 'flex: 1;' : 'flex: 0'}">
+			<div class="side-menu custom-shadow max-w-94 min-w-fit flex flex-col p-5 bg-violet-100 relative overflow-hidden">
 				<button class="absolute w-11 h-11 hover:bg-violet-500/90 bg-violet-500/50 rounded-md top-1 text-white"
 				        style="right: -52px;"
 				        onclick={toggleSideMenu}>
@@ -49,6 +50,7 @@
 			</div>
 		{/if}
 	</div>
+	<!-- The Header/Title bar -->
 	<div class="w-screen bg-violet-500 flex justify-center relative h-12 min-h-12 custom-shadow text-white">
 		<h1>{@render slots.heading()}</h1>
 		<div class="right-2 absolute flex content-center items-center justify-center h-full">
@@ -78,7 +80,27 @@
   @reference "tailwindcss";
 
   .navigation-button {
-    @apply px-3 py-2 hover:bg-violet-600 transition-all bg-violet-500 text-white font-semibold rounded-md whitespace-nowrap;
+    @apply px-2.5 py-1.5 hover:bg-violet-600 transition-all bg-violet-500 text-white font-semibold rounded-md whitespace-nowrap;
+  }
+
+  .tutorial-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "sidemenu main";
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+  }
+
+  .main-content {
+    overflow: auto;
+    min-width: fit-content;
+    grid-area: main;
+  }
+
+  .side-menu {
+    padding: 1rem;
+    grid-area: sidemenu;
   }
 
   .heroicons-outline--x {

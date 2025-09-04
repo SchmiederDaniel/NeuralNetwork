@@ -8,8 +8,8 @@
 		sidemenu,
 		sidebutton,
 		button: {
-			previousLink: "/tutorials/introduction/1", previousText: "Previous chapter",
-			nextLink: "/tutorials/introduction/3", nextText: "Next chapter"
+			previousLink: '/tutorials/introduction/1', previousText: '< Chapter',
+			nextLink: '/tutorials/introduction/3', nextText: 'Chapter >'
 		}
 	});
 
