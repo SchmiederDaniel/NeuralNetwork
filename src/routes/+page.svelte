@@ -1,4 +1,5 @@
 <script>
+	import { resolve } from '$app/paths';
 </script>
 
 <div class="flex w-screen h-screen flex-col text-center items-center justify-center">
@@ -10,11 +11,11 @@
 		<div class="flex wrap-normal items-center gap-4">
 			<div class="project-card">
 				<p>Some examples on how to use the library and what you can do with it.</p>
-				<a href="/examples">Examples</a>
+				<a href="{resolve('/examples')}">Examples</a>
 			</div>
 			<div class="project-card">
 				<p>Step by step animated tutorials which explain the math behind Neural Networks.</p>
-				<a href="/tutorials">Tutorials</a>
+				<a href="{resolve('/tutorials')}">Tutorials</a>
 			</div>
 		</div>
 	</div>
