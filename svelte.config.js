@@ -28,7 +28,7 @@ const config = {
 		// 	}
 		// },
 		paths: {
-			// relative: true,
+			relative: true,
 			base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
 		}
 	}
