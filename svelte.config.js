@@ -19,8 +19,11 @@ const config = {
 			precompress: false,
 			strict: false
 		}),
+		// paths: {
+		// 	relative: true
+		// }
 		paths: {
-			relative: true
+			base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
 		}
 	}
 };
