@@ -1,4 +1,5 @@
 <script>
+	import { resolve } from '$app/paths';
 	import tutorials from './tutorials.svelte.json';
 	import { getObjectReference } from '$lib/object-storage.svelte.js';
 
@@ -40,10 +41,10 @@
 						{@render slots.sidemenu()}
 					</div>
 					<div class="w-full flex items-center justify-center gap-3 pt-3">
-						<a href={slots.button.previousLink}
+						<a href={resolve(slots.button.previousLink)}
 						   class="navigation-button custom-shadow {slots.button.previousLink ? '' : 'disabled'}">{slots.button.previousText}</a>
 						<div class="grow-1"></div>
-						<a href={slots.button.nextLink}
+						<a href={resolve(slots.button.nextLink)}
 						   class="navigation-button navigation-button-right custom-shadow {slots.button.nextLink ? '' : 'disabled'}">{slots.button.nextText}</a>
 					</div>
 				{/if}
@@ -59,12 +60,12 @@
 				        onclick={() => burgerMenuOpen = !burgerMenuOpen}></button>
 				<div class="top-12 absolute right-0 p-4 rounded-b-md text-white bg-violet-600 custom-shadow">
 					<nav class="gap-2 nav-separator">
-						<a href="/tutorials">Overview</a>
+						<a href={resolve("/tutorials")}>Overview</a>
 					</nav>
 					<h1>Tutorials</h1>
 					<nav class="gap-2 nav-separator">
 						{#each tutorials as tutorial}
-							<a href="{tutorial.link}">{tutorial.title}</a>
+							<a href="{resolve(tutorial.link)}">{tutorial.title}</a>
 						{/each}
 					</nav>
 				</div>

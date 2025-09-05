@@ -7,7 +7,8 @@
 		<div class="title">
 			Neural Network Animation
 		</div>
-		<p class="max-w-80">This project is build around a library project I made in javascript and can be used without dependencies.</p>
+		<p class="max-w-80">This project is build around a library project I made in javascript and can be used without
+			dependencies.</p>
 		<div class="flex wrap-normal items-center gap-4">
 			<div class="project-card">
 				<p>Some examples on how to use the library and what you can do with it.</p>
@@ -24,15 +25,15 @@
   @reference "tailwindcss";
 
   p {
-	  font-size: 0.95em;
+    font-size: 0.95em;
   }
 
   .project-card {
-	  @apply bg-slate-100 rounded-md shadow-md p-4;
+    @apply bg-slate-100 rounded-md shadow-md p-4;
   }
 
   .project-card > p {
-	  @apply text-gray-600 font-semibold;
+    @apply text-gray-600 font-semibold;
   }
 
   a {
