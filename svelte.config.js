@@ -15,14 +15,20 @@ const config = {
 			fallback: 'index.html',
 			pages: 'build',
 			assets: 'build',
-			prerender: true,
 			precompress: false,
 			strict: false
 		}),
-		// paths: {
-		// 	relative: true
-		// }
+		/**
+		 * Will "handleHttpError" catch all links to pages which don't exist.
+		 * Adding this would be bad practice as some links link to unknown pages.
+		 */
+		// prerender: {
+		// 	handleHttpError: ({ path, referrer, message }) => {
+		// 		console.log(path, referrer)
+		// 	}
+		// },
 		paths: {
+			// relative: true,
 			base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
 		}
 	}

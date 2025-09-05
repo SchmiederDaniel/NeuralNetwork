@@ -7,7 +7,7 @@
 	setObject({
 		sidemenu, sidebutton, button: {
 			previousLink: '/tutorials/forwardpass/1', previousText: '< Chapter',
-			nextLink: '/tutorials/forwardpass/3', nextText: 'Chapter >'
+			nextLink: '', nextText: 'Chapter >'
 		}
 	});
 

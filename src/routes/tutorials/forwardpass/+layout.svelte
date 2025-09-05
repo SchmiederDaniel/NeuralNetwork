@@ -6,5 +6,5 @@
 </script>
 {@render children()}
 {#snippet heading()}
-	Introduction
+	Forwardpass
 {/snippet}

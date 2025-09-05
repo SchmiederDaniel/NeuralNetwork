@@ -41,10 +41,10 @@
 					</div>
 					<div class="w-full flex items-center justify-center gap-3 pt-3">
 						<a href={slots.button.previousLink}
-						   class="navigation-button custom-shadow">{slots.button.previousText}</a>
+						   class="navigation-button custom-shadow {slots.button.previousLink ? '' : 'disabled'}">{slots.button.previousText}</a>
 						<div class="grow-1"></div>
 						<a href={slots.button.nextLink}
-						   class="navigation-button navigation-button-right custom-shadow">{slots.button.nextText}</a>
+						   class="navigation-button navigation-button-right custom-shadow {slots.button.nextLink ? '' : 'disabled'}">{slots.button.nextText}</a>
 					</div>
 				{/if}
 			</div>
@@ -74,6 +74,8 @@
 			{/if}
 		</div>
 	</div>
+	<!-- Hidden div element which uses the "disabled" class so svelte doesn't optimize and remove it on build. -->
+	<div class="disabled" style="visibility: hidden"></div>
 </div>
 
 <style lang="postcss">
@@ -126,5 +128,9 @@
     mask-repeat: no-repeat;
     -webkit-mask-size: 100% 100%;
     mask-size: 100% 100%;
+  }
+
+  .disabled {
+		@apply  bg-violet-300 pointer-events-none;
   }
 </style>
