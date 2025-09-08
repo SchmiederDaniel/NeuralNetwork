@@ -38,6 +38,7 @@
 <div bind:this={networkContainer}></div>
 
 {#snippet sidemenu()}
+	<h5>Definable properties</h5>
 	<p>
 		The hidden layer and node count is what we as a developer can define for our neural networks.
 	</p>

@@ -2,7 +2,7 @@
 	import { setObject } from '$lib/object-storage.svelte.js';
 	import { onMount } from 'svelte';
 	import { highlightElement } from '$lib/animations.js';
-	import { setupNetwork } from '$lib/network/NetworkConfig.js';
+	import { setupNetwork, setupNetworkWeights } from '$lib/network/NetworkConfig.js';
 
 	setObject({
 		sidemenu, sidebutton, button: {
@@ -13,7 +13,8 @@
 
 	let networkContainer = $state();
 	onMount(() => {
-		const network = setupNetwork(networkContainer, 42, [1,  1], false);
+		const weights = [null, [[0.5]]];
+		const network = setupNetworkWeights(networkContainer, weights, [1, 1], false);
 
 		const input = [2];
 		network.setInputData(input);
@@ -28,7 +29,8 @@
 <div bind:this={networkContainer}></div>
 
 {#snippet sidemenu()}
-	<h5>Welcome back!</h5>
+	<h5>Forward pass</h5>
+	<p>Welcome back!</p>
 	<p>In this tutorial I want to explain how the <b>Forwardpass</b> is being calculated.</p>
 	<p>And look!</p>
 	<p>I simplified the neural network. It's much cuter now, right? 🥺</p>

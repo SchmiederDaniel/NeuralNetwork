@@ -20,6 +20,8 @@ export function cloneFloatAnimation(
 
 	const state = Flip.getState(element);
 	const clone: HTMLElement = element.cloneNode(true) as HTMLElement;
+	const originalStyle = getComputedStyle(element);
+	const destinationStyle = getComputedStyle(destinationContainer);
 	destinationContainer.prepend(clone);
 
 	gsap.set(clone, {
@@ -29,8 +31,21 @@ export function cloneFloatAnimation(
 		top: '0%',
 		position: 'relative',
 		zIndex: 100,
-		transform: ''
+		transform: '',
+		fontSize: originalStyle.fontSize
 	});
+
+	gsap.fromTo(
+		clone,
+		{
+			fontSize: originalStyle.fontSize
+		},
+		{
+			duration: duration,
+			ease: 'power1.inOut',
+			fontSize: destinationStyle.fontSize
+		}
+	);
 
 	Flip.from(state, {
 		duration: duration,

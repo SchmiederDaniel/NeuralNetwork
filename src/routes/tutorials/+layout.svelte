@@ -132,6 +132,6 @@
   }
 
   .disabled {
-		@apply  bg-violet-300 pointer-events-none;
+    @apply bg-violet-300 pointer-events-none;
   }
 </style>

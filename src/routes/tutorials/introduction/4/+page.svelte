@@ -35,6 +35,7 @@
 <div bind:this={networkContainer}></div>
 
 {#snippet sidemenu()}
+	<h5>Nodes</h5>
 	<p>Every layer can have multiple <b>Nodes</b> (or also called <b>Neurons</b>) which aren't mathematically required,
 		but we will use them here for visualization purpose.</p>
 	<p>The input layers <b>Nodes</b> are only here to save/show us what the input data for our our

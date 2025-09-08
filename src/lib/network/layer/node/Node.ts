@@ -13,7 +13,7 @@ export default class Node extends Self {
 	private X: number[];
 	private layerType: string; // The layer type e.g. (output, input, hidden)
 	private z: number;
-	private text: HTMLElement = document.createElement('div');
+	public text: HTMLElement = document.createElement('div');
 
 	/**
 	 * weightValues can be null for Bias as Bias doesn't connect to nodes before.

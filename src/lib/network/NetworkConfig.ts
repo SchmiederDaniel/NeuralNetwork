@@ -20,6 +20,19 @@ export function setupNetwork(
 	return new Network(networkContainer, networkConfig);
 }
 
+export function setupNetworkWeights(
+	networkContainer: HTMLElement,
+	weights: (number[][] | null)[],
+	layerDimensions: number[],
+	bias: boolean = true
+) {
+	const networkConfig = new NetworkConfig(layerDimensions)
+		.setLearningRate(0.01)
+		.setBiasEnabled(bias);
+	return new Network(networkContainer, networkConfig, weights as number[][][]);
+}
+
+
 export default class NetworkConfig {
 	constructor(layerDimensions: number[], inputData?: number[][], outputData?: number[][]) {
 		this.setLayerDimensions(layerDimensions);

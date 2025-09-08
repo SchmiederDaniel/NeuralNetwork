@@ -16,17 +16,14 @@
 	let networkContainer = $state();
 
 	onMount(() => {
-		const network = setupNetwork(networkContainer, 42, [1, 3, 2, 2]);
+		const network = setupNetwork(networkContainer, 42, [1, 3, 2]);
 		const input = [2];
 		network.setInputData(input);
 		network.forward(input);
 
 		const resetCallbacks = [
-			highlightElement('.node:not(.output, .input)'),
-			highlightElement('.hidden'),
-			hideElement('.output'),
-			hideElement('.input'),
-			hideElement('.weight-line')
+			hideElement('.node'),
+			highlightElement(".weight-line")
 		];
 		return () => {
 			resetCallbacks.forEach(resetCallback => resetCallback());
@@ -38,6 +35,7 @@
 <div bind:this={networkContainer}></div>
 
 {#snippet sidemenu()}
+	<h5>Weights</h5>
 	<p>And finally we have the <b>Weights</b></p>
 	<p>The Weights are the connections between the Nodes and each Weight has one randomly generated value. </p>
 	<p>The weights are

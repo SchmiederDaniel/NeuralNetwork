@@ -101,7 +101,7 @@ export default class Weight extends NetworkElement {
 	private readonly nodeIndex: number;
 	private networkConfig: NetworkConfig;
 	public readonly line: HTMLDivElement;
-	private readonly text: HTMLDivElement;
+	public readonly text: HTMLDivElement;
 
 	constructor(
 		networkConfig: NetworkConfig,

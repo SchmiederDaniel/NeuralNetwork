@@ -28,10 +28,10 @@ function createWeights(layerDimensions: number[], seed: number): number[][][] {
 }
 
 export default class Network extends LabelContainer {
-	private layerDimensions: number[];
-	private layers: Layer[] = [];
+	private readonly layerDimensions: number[];
+	public layers: Layer[] = [];
 	private y_pred: number[];
-	private networkConfig: NetworkConfig;
+	private readonly networkConfig: NetworkConfig;
 
 	/**
      If the weights are manually created the first array has to be null to represent the input layer.
