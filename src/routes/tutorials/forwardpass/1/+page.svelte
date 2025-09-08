@@ -13,7 +13,6 @@
 
 	let networkContainer = $state();
 	onMount(() => {
-		const resetCallback = highlightElement('.navigation-button-right');
 		const network = setupNetwork(networkContainer, 42, [1,  1], false);
 
 		const input = [2];
@@ -21,7 +20,6 @@
 		network.forward(input);
 
 		return () => {
-			resetCallback();
 			network.onDestroy();
 		};
 	});

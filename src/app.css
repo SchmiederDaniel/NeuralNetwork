@@ -25,6 +25,7 @@ a::after {
 }
 
 .custom-shadow {
+  --customShadow: 0 0 8px 4px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -69,4 +70,9 @@ p {
 
 .center {
   @apply flex w-screen h-screen flex-col text-center items-center justify-center;
+}
+
+.button-like {
+  @apply rounded-md;
+  box-shadow: var(--customShadow);
 }
