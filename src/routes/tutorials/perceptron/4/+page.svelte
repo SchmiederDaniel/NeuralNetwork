@@ -8,8 +8,8 @@
 
 	setObject({
 		sidemenu, sidebutton, button: {
-			previousLink: '/tutorials/forwardpass/3', previousText: '< Chapter',
-			nextLink: '', nextText: 'Chapter >'
+			previousLink: '/tutorials/perceptron/3', previousText: '< Chapter',
+			nextLink: '/tutorials/perceptron/5', nextText: 'Chapter >'
 		}
 	});
 	let network;
@@ -53,9 +53,9 @@
 				delay: 3
 			})
 			.call(() => {
-				x.innerHTML = 'x';
+				x.innerHTML = 'X';
 				w.innerHTML = 'w';
-				y.innerHTML = 'y';
+				y.innerHTML = 'y_pred';
 			})
 			.to([x, w, y], {
 				opacity: 1
@@ -72,7 +72,6 @@
 		network.setInputData(input);
 		network.forward(input);
 
-		// animationLoop();
 		timeLine = createTimeline();
 
 		return () => {
@@ -84,7 +83,7 @@
 
 <div class="grid grid-cols-1">
 	<div class="custom-shadow sm:rounded-lg">
-		<table class="w-full text-2xl text-center">
+		<table class="w-full custom-table text-2xl">
 			<thead>
 			<tr class="w-full">
 				<th colspan="3">
@@ -99,7 +98,7 @@
 			<tbody>
 			<tr>
 				<td>
-					<div bind:this={x} class="cloned-cell">x</div>
+					<div bind:this={x} class="cloned-cell">X</div>
 				</td>
 				<td>*</td>
 				<td>
@@ -107,7 +106,7 @@
 				</td>
 				<td>=</td>
 				<td>
-					<div bind:this={y} class="cloned-cell">y</div>
+					<div bind:this={y} style="height: 40px; width: 86px;">y_pred</div>
 				</td>
 			</tr>
 			</tbody>
@@ -117,51 +116,25 @@
 </div>
 
 {#snippet sidemenu()}
-	<p>The output of our neural network is calculated as follows:</p>
-	<div style="font-size: 1.2em;">
-		<Katex>y = x * w</Katex>
+	<p>So to calculate our output (<b>y_pred</b>) we have to multiply our input (<b>X</b>) with our weights (<b>w</b>) like
+		this:</p>
+	<div style="font-size: 1.2em;" class="pb-4">
+		<Katex>y\_pred = X * w</Katex>
+		<br>
 		<Katex>output = input * weight</Katex>
+		<br>
+		<Katex>2 = 1 * 0.5</Katex>
 	</div>
-	<p>Where y is our from the neural network produced output.</p>
+	<p>On the right you can see the visualization of the process.</p>
 {/snippet}
 
 {#snippet sidebutton()}{/snippet}
 
 <style lang="postcss">
   @reference "tailwindcss";
-  th {
-    font-weight: 500;
-  }
 
   .cloned-cell {
     width: 65px;
     height: 40px;
-  }
-
-  table {
-    text-align: center;
-    box-sizing: border-box;
-    border-spacing: 0;
-    border-radius: 8px;
-    border-collapse: separate;
-    overflow: hidden;
-  }
-
-  th, td {
-    padding: 10px 14px;
-    font-size: 1.2em;
-  }
-
-  thead th {
-    @apply bg-violet-500;
-    color: white;
-  }
-
-  tbody tr:nth-child(2n) {
-    @apply bg-violet-100;
-  }
-
-  tr {
-    background-color: white;
   }
 </style>

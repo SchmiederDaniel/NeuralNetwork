@@ -65,7 +65,7 @@
 					<h1>Tutorials</h1>
 					<nav class="gap-2 nav-separator">
 						{#each tutorials as tutorial}
-							<a href="{resolve(tutorial.link)}" class="button-like">{tutorial.title}</a>
+							<a href="{resolve(tutorial.link)}" >{tutorial.title}</a>
 						{/each}
 					</nav>
 				</div>

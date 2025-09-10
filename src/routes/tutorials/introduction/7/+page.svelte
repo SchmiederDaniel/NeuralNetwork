@@ -9,7 +9,7 @@
 		sidebutton,
 		button: {
 			previousLink: '/tutorials/introduction/6', previousText: '< Chapter',
-			nextLink: '/tutorials/forwardpass/1', nextText: 'Tutorial >'
+			nextLink: '/tutorials/perceptron/1', nextText: 'Tutorial >'
 		}
 	});
 

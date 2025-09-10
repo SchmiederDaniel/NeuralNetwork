@@ -6,5 +6,5 @@
 </script>
 {@render children()}
 {#snippet heading()}
-	Forwardpass
+	Perceptron
 {/snippet}

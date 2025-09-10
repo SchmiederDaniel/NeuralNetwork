@@ -44,7 +44,7 @@ h1 {
 }
 
 h2 {
- @apply text-4xl font-bold leading-tight p-2;
+  @apply text-4xl font-bold leading-tight p-2;
 }
 
 h3 {
@@ -75,4 +75,34 @@ p {
 .button-like {
   @apply rounded-md;
   box-shadow: var(--customShadow);
+}
+
+.custom-table {
+  text-align: center;
+  box-sizing: border-box;
+  border-spacing: 0;
+  border-radius: 8px;
+  border-collapse: separate;
+  overflow: hidden;
+
+  @apply text-center w-full;
+}
+
+.custom-table th, .custom-table td {
+  padding: 10px 14px;
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.custom-table tr {
+  background-color: white;
+}
+
+.custom-table thead th {
+  @apply bg-violet-500;
+  color: white;
+}
+
+.custom-table tbody tr:nth-child(2n) {
+  @apply bg-violet-100;
 }
